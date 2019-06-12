@@ -1,0 +1,22 @@
+{
+  "pieces": {
+      "R": {
+	        "link": "link"
+	      },
+      "P": {
+	        "link": "link"
+	      },
+      "Q": {
+	        "link": "link"
+	      },
+      "E": {
+	        "link": "link"
+	      },
+      "B": {
+	        "link": "link"
+	      },
+      "K": {
+	        "link": "link"
+	      }
+    }
+}
