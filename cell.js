@@ -1,7 +1,10 @@
 class Cell {
-	constructor(x,y){
+	constructor(x,y,p=null){
 		this.x = x;
 		this.y = y;
+		this.actualX = this.x * cellSize
+		this.actualY = this.y * cellSize
+		this.p = p;
 	}
 
 	show = () => {
@@ -10,15 +13,18 @@ class Cell {
 			if(this.x % 2 == 0){
 				fill(255);
 			}else{
-				fill(0);
+				fill(100);
 			}
 		}else{
 			if(this.x % 2 == 0){
-				fill(0);
+				fill(100);
 			}else{
 				fill(255);
 			}
 		}
-		rect(cellSize*this.x, cellSize*this.y, cellSize,cellSize);
+		rect(this.actualX, this.actualY, cellSize, cellSize);
+		if(this.p != null){
+			image(rook, this.actualX,this.actualY, cellSize, cellSize);
+		}
 	}
 }
