@@ -24,7 +24,27 @@ class Cell {
 		}
 		rect(this.actualX, this.actualY, cellSize, cellSize);
 		if(this.p != null){
-			image(rook, this.actualX,this.actualY, cellSize, cellSize);
+			console.log(this.p);
+			switch(this.p){
+				case "R":
+					image(rook, this.actualX,this.actualY, cellSize, cellSize);
+					break;
+				case "E":
+					image(king, this.actualX,this.actualY, cellSize, cellSize);
+					break;
+				case "P":
+					image(pawn, this.actualX,this.actualY, cellSize, cellSize);
+					break;
+				case "K":
+					image(knight, this.actualX,this.actualY, cellSize, cellSize);
+					break;
+				case "B":
+					image(bishop, this.actualX,this.actualY, cellSize, cellSize);
+					break;
+				case "Q":
+					image(queen, this.actualX,this.actualY, cellSize, cellSize);
+					break;
+			}
 		}
 	}
 }
