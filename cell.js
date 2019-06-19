@@ -24,7 +24,6 @@ class Cell {
 		}
 		rect(this.actualX, this.actualY, cellSize, cellSize);
 		if(this.p != null){
-			console.log(this.p);
 			switch(this.p){
 				case "R":
 					image(rook, this.actualX,this.actualY, cellSize, cellSize);
