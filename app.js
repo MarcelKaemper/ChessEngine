@@ -2,12 +2,16 @@ let canvasSize = 800;
 let cellSize = canvasSize/8;
 let cells = [[],[],[],[],[],[],[],[]];
 
+let moveT;
+let moveD;
+
 let rook;
 let king;
 let queen;
 let pawn;
 let bishop;
 let knight;
+let temp;
 
 preload = () => {
 	rook = loadImage(JSON.parse(pieces).R);
@@ -38,15 +42,32 @@ setup = () => {
 }
 
 draw = () => {
+}
 
+refresh = () => {
+	for(let i = 0; i<cells.length;i++){
+		for(let j = 0; j<cells[i].length; j++){
+			cells[i][j].show();
+		}
+	}
 }
 
 mousePressed = () => {
-	console.log(mouseX,mouseY);
+	let row = Math.floor(mouseY/cellSize);
+	let col = Math.floor(mouseX/cellSize);
+	moveT = [row,col];
 }
 
 mouseReleased = () => {
-	console.log(mouseX,mouseY);
+	let row = Math.floor(mouseY/cellSize);
+	let col = Math.floor(mouseX/cellSize);
+	moveD = [row, col];
+
+	temp = cells[moveT[0]][moveT[1]].p;
+	cells[moveT[0]][moveT[1]].p = null;
+	cells[moveD[0]][moveD[1]].p = temp;
+
+	refresh();
 }
 
 stdPos = () => {
