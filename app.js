@@ -86,25 +86,22 @@ stdPos = () => {
 	let firstRow = ["R","N","B","Q","K","B","N","R"];
 	let secondRow = ["P","P","P","P","P","P","P","P"];
 	for(let i = 0; i<8; i++){
-		if(i==0){
-			for(let j = 0; j<8; j++){
+		for(let j = 0; j<8; j++){
+			if(i==0){
 				cells[i][j].p = firstRow[j];
 				cells[i][j].color = 2;
-			}
-		}else if(i==1){
-			for(let j = 0; j<8; j++){
+			}else if(i==1){
 				cells[i][j].p = secondRow[j];
 				cells[i][j].color = 2;
-			}
-		}else if(i==6){
-			for(let j = 0; j<8; j++){
+			}else if(i==6){
 				cells[i][j].p = secondRow[j];
 				cells[i][j].color = 1;
-			}
-		}else if(i==7){
-			for(let j = 0; j<8; j++){
+			}else if(i==7){
 				cells[i][j].p = firstRow[j];
 				cells[i][j].color = 1;
+			}else{
+				cells[i][j].p = null;
+				cells[i][j].color = 0;
 			}
 		}
 	}
