@@ -62,15 +62,18 @@ mouseReleased = () => {
 	let col = Math.floor(mouseX/cellSize);
 	moveD = [row, col];
 
-	let toMove = cells[moveT[0]][moveT[1]].p;
-	let moveTo = cells[moveD[0]][moveD[1]].p;
+	let toMove = cells[moveT[0]][moveT[1]];
+	let moveTo = cells[moveD[0]][moveD[1]];
+	let moveDistance = [moveT[0]-moveD[0],moveT[1]-moveD[1]];
 
-	if(toMove != null){
-		if(moveTo == null){
-			if(toMove == "P"){
-				if(moveT[0]-moveD[0] <= 1){
+	if(toMove.p != null){
+		if(moveTo.p == null){
+			if(toMove.p == "P"){
+				console.log(moveDistance);
+				if((toMove.color == 2 && moveDistance[0] == -2 || moveDistance[0] == -1)
+				|| (toMove.color == 1 && moveDistance[0] == 2|| moveDistance[0] == 1)) {
+					cells[moveD[0]][moveD[1]].p = toMove.p;
 					cells[moveT[0]][moveT[1]].p = null;
-					cells[moveD[0]][moveD[1]].p = toMove;
 				}
 			}
 		}
