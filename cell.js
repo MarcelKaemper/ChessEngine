@@ -1,10 +1,13 @@
 class Cell {
-	constructor(x,y,p=null){
+	constructor(x,y,p=null,color=0){
 		this.x = x;
 		this.y = y;
 		this.actualX = this.x * cellSize
 		this.actualY = this.y * cellSize
 		this.p = p;
+		//0;1;2
+		//none;white;black
+		this.color = color;
 	}
 
 	show = () => {
