@@ -33,11 +33,6 @@ setup = () => {
 		}
 	}
 	stdPos();
-	for(let i = 0; i<cells.length;i++){
-		for(let j = 0; j<cells[i].length; j++){
-			cells[i][j].show();
-		}
-	}
 }
 
 draw = () => {
@@ -52,12 +47,19 @@ refresh = () => {
 }
 
 mousePressed = () => {
+	if(mouseY > 800 || mouseY < 0 || mouseX > 800 || mouseX < 0){
+		return;
+	}
 	let row = Math.floor(mouseY/cellSize);
 	let col = Math.floor(mouseX/cellSize);
 	moveT = [row,col];
 }
 
 mouseReleased = () => {
+	if(mouseY > 800 || mouseY < 0 || mouseX > 800 || mouseX < 0){
+		return;
+	}
+
 	let row = Math.floor(mouseY/cellSize);
 	let col = Math.floor(mouseX/cellSize);
 	moveD = [row, col];
@@ -105,4 +107,5 @@ stdPos = () => {
 			}
 		}
 	}
+	refresh();
 }
