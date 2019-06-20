@@ -28,13 +28,13 @@ class Cell {
 				case "R":
 					image(rook, this.actualX,this.actualY, cellSize, cellSize);
 					break;
-				case "E":
+				case "K":
 					image(king, this.actualX,this.actualY, cellSize, cellSize);
 					break;
 				case "P":
 					image(pawn, this.actualX,this.actualY, cellSize, cellSize);
 					break;
-				case "K":
+				case "N":
 					image(knight, this.actualX,this.actualY, cellSize, cellSize);
 					break;
 				case "B":

@@ -11,7 +11,6 @@ let queen;
 let pawn;
 let bishop;
 let knight;
-let temp;
 
 preload = () => {
 	rook = loadImage(JSON.parse(pieces).R);
@@ -63,15 +62,15 @@ mouseReleased = () => {
 	let col = Math.floor(mouseX/cellSize);
 	moveD = [row, col];
 
-	temp = cells[moveT[0]][moveT[1]].p;
+	let toMove = cells[moveT[0]][moveT[1]].p;
 	cells[moveT[0]][moveT[1]].p = null;
-	cells[moveD[0]][moveD[1]].p = temp;
+	cells[moveD[0]][moveD[1]].p = toMove;
 
 	refresh();
 }
 
 stdPos = () => {
-	let firstRow = ["R","K","B","Q","E","B","K","R"];
+	let firstRow = ["R","N","B","Q","K","B","N","R"];
 	let secondRow = ["P","P","P","P","P","P","P","P"];
 	for(let i = 0; i<8; i++){
 		if(i==0){
