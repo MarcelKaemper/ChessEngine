@@ -63,8 +63,18 @@ mouseReleased = () => {
 	moveD = [row, col];
 
 	let toMove = cells[moveT[0]][moveT[1]].p;
-	cells[moveT[0]][moveT[1]].p = null;
-	cells[moveD[0]][moveD[1]].p = toMove;
+	let moveTo = cells[moveD[0]][moveD[1]].p;
+
+	if(toMove != null){
+		if(moveTo == null){
+			if(toMove == "P"){
+				if(moveT[0]-moveD[0] <= 1){
+					cells[moveT[0]][moveT[1]].p = null;
+					cells[moveD[0]][moveD[1]].p = toMove;
+				}
+			}
+		}
+	}
 
 	refresh();
 }
@@ -76,18 +86,22 @@ stdPos = () => {
 		if(i==0){
 			for(let j = 0; j<8; j++){
 				cells[i][j].p = firstRow[j];
+				cells[i][j].color = 2;
 			}
 		}else if(i==1){
 			for(let j = 0; j<8; j++){
 				cells[i][j].p = secondRow[j];
+				cells[i][j].color = 2;
 			}
 		}else if(i==6){
 			for(let j = 0; j<8; j++){
 				cells[i][j].p = secondRow[j];
+				cells[i][j].color = 1;
 			}
 		}else if(i==7){
 			for(let j = 0; j<8; j++){
 				cells[i][j].p = firstRow[j];
+				cells[i][j].color = 1;
 			}
 		}
 	}
