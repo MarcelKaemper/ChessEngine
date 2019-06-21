@@ -73,13 +73,10 @@ mouseReleased = () => {
 			if(moveTo.p == null){
 				console.log(moveDistance);
 				console.log(toMove);
-				if((moveDistance[0] == 1 && toMove.color == 1 && moveDistance[1] == 0)
-					|| moveDistance[0] == -1 && toMove.color == 2 && moveDistance[1] == 0){
-					cells[moveD[0]][moveD[1]].p = toMove.p;
-					cells[moveT[0]][moveT[1]].p = null;
-
-					cells[moveD[0]][moveD[1]].color = toMove.color;
-					cells[moveT[0]][moveT[0]].color = 0;
+				// if((moveDistance[0] == 1 && toMove.color == 1 && moveDistance[1] == 0)
+				// 	|| moveDistance[0] == -1 && toMove.color == 2 && moveDistance[1] == 0){
+				if((toMove.color == 1 && (moveDistance[0] == 1 || moveDistance[0] == 2 && toMove.firstMove == 1) || toMove.color == 2 && (moveDistance[0] == -1 || moveDistance[0] == -2 && toMove.firstMove == 1)) && moveDistance[1] == 0){
+					movePiece(moveD[0], moveD[1],moveT[0],moveT[1],toMove);
 				}
 			// }else{
 			// 	console.log("else");
@@ -92,6 +89,17 @@ mouseReleased = () => {
 	}
 
 	refresh();
+}
+
+movePiece = (x,y,x1,y1,toMove) => {
+	cells[x][y].p = toMove.p;
+	cells[x1][y1].p = null;
+
+	cells[x][y].firstMove = 0;
+	cells[x1][y1].firstMove = 0;
+
+	cells[x][y].color = toMove.color;
+	cells[x1][y1].color = 0;
 }
 
 stdPos = () => {
