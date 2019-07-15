@@ -6,6 +6,8 @@ let cells = [[],[],[],[],[],[],[],[]];
 let p;
 let p1;
 
+let toMove;
+
 
 preload = () => {
 }
@@ -33,10 +35,11 @@ redrawAll = () => {
 	background(255);
 	for(let i = 0; i<8; i++){
 		for(let j = 0; j<8; j++){
-			cells[i][j].show();
-			if(cells[i][j].p != null){
-				cells[i][j].p.show();
-			}
+			cells[i][j].show().then(() => {
+				if(cells[i][j].p != null){
+					cells[i][j].p.show();
+				}
+			});
 		}
 	}
 }
@@ -48,8 +51,10 @@ mousePressed = () => {
 	if(mouseY > 800 || mouseY < 0 || mouseX > 800 || mouseX < 0){
 		return;
 	}
-	let row = Math.floor(mouseY/cellSize);
 	let col = Math.floor(mouseX/cellSize);
+	let row = Math.floor(mouseY/cellSize);
+
+	toMove = [col,row];
 }
 
 mouseReleased = () => {
@@ -59,4 +64,7 @@ mouseReleased = () => {
 
 	let row = Math.floor(mouseY/cellSize);
 	let col = Math.floor(mouseX/cellSize);
+
+	cells[toMove[0]][toMove[1]].p.move(col,row);
+	toMove = [];
 }
