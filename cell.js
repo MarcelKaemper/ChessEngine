@@ -27,7 +27,7 @@ class Cell {
 					fill(255);
 				}
 			}
-			rect(this.actualX, this.actualY, cellSize, cellSize);
+			rect(this.actualX+32, this.actualY, cellSize, cellSize);
 			resolve();
 		})
 	}

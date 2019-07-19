@@ -1,5 +1,5 @@
-let canvasSize = 800;
-let cellSize = canvasSize/8;
+let canvasSize = 832;
+let cellSize = (canvasSize-32)/8;
 
 let cells = [[],[],[],[],[],[],[],[]];
 
@@ -14,7 +14,8 @@ preload = () => {
 
 
 setup = () => {
-	createCanvas(canvasSize, canvasSize);
+	// plus 32 on y axis to create room for the letters
+	createCanvas(canvasSize, canvasSize+32);
 
 	for(let i = 0; i<8; i++){
 		for(let j = 0; j<8; j++){
@@ -41,6 +42,13 @@ redrawAll = () => {
 				}
 			});
 		}
+	}
+	let x = ["a","b","c","d","e","f","g","h"];
+	fill(0);
+	textSize(32);
+	for(let i = 7; i>=0; i--){
+		text((i+1).toString(),0,100*(8-i)-32);
+		text(x[7-i],100*(8-i)-32, 832);
 	}
 }
 
