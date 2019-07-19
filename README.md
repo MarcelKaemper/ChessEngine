@@ -16,5 +16,6 @@ Currently not even a working game.
   + Queen movement
 + Checking for illegal moves
 + Checkmate/Mate detection
++ Timer/Clock
 + Chess engine
-+ 
++ Stats
