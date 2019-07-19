@@ -56,22 +56,24 @@ draw = () => {
 }
 
 mousePressed = () => {
-	if(mouseY > 800 || mouseY < 0 || mouseX > 800 || mouseX < 0){
+	if(mouseY > 800 || mouseY < 0 || mouseX > 832 || mouseX < 32){
+		console.log("Out of area");
 		return;
 	}
-	let col = Math.floor(mouseX/cellSize);
+	let col = Math.floor(mouseX/(cellSize+32));
 	let row = Math.floor(mouseY/cellSize);
 
 	toMove = [col,row];
 }
 
 mouseReleased = () => {
-	if(mouseY > 800 || mouseY < 0 || mouseX > 800 || mouseX < 0){
+	if(mouseY > 800 || mouseY < 0 || mouseX > 832 || mouseX < 32){
+		console.log("Out of area");
 		return;
 	}
 
+	let col = Math.floor(mouseX/(cellSize+32));
 	let row = Math.floor(mouseY/cellSize);
-	let col = Math.floor(mouseX/cellSize);
 
 	cells[toMove[0]][toMove[1]].p.move(col,row);
 	toMove = [];
